@@ -1,5 +1,8 @@
 # Postfix filters written in Ruby
 
+A set of useful header/content processing filters for
+postfix written in ruby.
+
 ## Filter integration in postfix header_checks
 
 piped filter configuration in `master.cf`:
@@ -13,4 +16,6 @@ filter_reply_to    unix  -       n       n       -       10      pipe
 
 conditional filter execution in [header_checks](http://www.postfix.org/header_checks.5.html):
 
-  /^To: distribution-list@foo.bar/ FILTER filter_reply_to:dummy
+<pre>
+/^To: distribution-list@foo.bar/ FILTER filter_reply_to:dummy
+</pre>
