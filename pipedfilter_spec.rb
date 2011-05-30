@@ -30,7 +30,7 @@ describe "reply-to filter" do
   
    output = Tempfile.new('output')
     
-    Postfix::PipedFilter.replace_reply_to(incomming_mail, "new@bar.com", output)
+    Postfix::PipedFilter.filter_reply_to(incomming_mail, "new@bar.com", output)
     
     # jump to beginning of tempfile
     output.seek(0)

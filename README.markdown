@@ -19,3 +19,6 @@ conditional filter execution in [header_checks](http://www.postfix.org/header_ch
 <pre>
 /^To: distribution-list@foo.bar/ FILTER filter_reply_to:dummy
 </pre>
+
+
+run `postfix reload` to reload the configuration

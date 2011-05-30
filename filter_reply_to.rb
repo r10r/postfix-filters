@@ -8,7 +8,7 @@ module Postfix
     # removes all Reply-To headers in the given input and 
     # adds a new Reply-To header for the given reply_to_address.
     # the processed input is written to the given IO object/subprocess
-    def self.replace_reply_to(input, reply_to_address, command)
+    def self.filter_reply_to(input, reply_to_address, command)
     
       in_header = true
       
@@ -44,5 +44,5 @@ if __FILE__ == $0
   # adds a Reply-To header and puts in the recipient adress
   sender, recipient = ARGV
   command = "| sendmail -f %s -- %s" % [sender,recipient]
-  ReplyTo.process(STDIN, sender,recipient, command)
+  Postfix::PipedFilter.filter_reply_to(STDIN, recipient, command)
 end
