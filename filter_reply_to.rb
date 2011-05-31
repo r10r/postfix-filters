@@ -41,8 +41,8 @@ module Postfix
 end
 
 if __FILE__ == $0
-  # adds a Reply-To header and puts in the recipient adress
+  # adds a Reply-To header with the recipient adress
   sender, recipient = ARGV
-  command = "| sendmail -f %s -- %s" % [sender,recipient]
+  command = "| /usr/sbin/sendmail -f %s -- %s" % [sender,recipient]
   Postfix::PipedFilter.filter_reply_to(STDIN, recipient, command)
 end

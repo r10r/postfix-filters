@@ -22,3 +22,16 @@ conditional filter execution in [header_checks](http://www.postfix.org/header_ch
 
 
 run `postfix reload` to reload the configuration
+
+
+## manual testing
+
+<pre>
+cat testmail | ruby ./filter_reply_to.rb sender@foo.com recipient@foo.com
+</pre>
+
+
+## troubleshooting
+
+- The specs currently require ruby 1.9
+- sendmail must be in the PATH or fully qualified
