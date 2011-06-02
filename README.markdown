@@ -20,6 +20,9 @@ conditional filter execution in [header_checks](http://www.postfix.org/header_ch
 /^To: distribution-list@foo.bar/ FILTER filter_reply_to:dummy
 </pre>
 
+*NOTE*
+For the `FILTER` action valid destination is required, since the filter takes care
+of delivering the mail using sendmail, therefore it is set to a `dummy` value. 
 
 run `postfix reload` to reload the configuration
 
